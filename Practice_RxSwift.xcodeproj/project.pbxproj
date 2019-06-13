@@ -16,6 +16,7 @@
 		6BC6ADFD22AFA54F007C2FE1 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC6ADFC22AFA54F007C2FE1 /* SignUpViewController.swift */; };
 		6BC6ADFF22B1EC98007C2FE1 /* GeoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC6ADFE22B1EC98007C2FE1 /* GeoViewController.swift */; };
 		6BC6AE0122B210C9007C2FE1 /* GeoLocationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC6AE0022B210C9007C2FE1 /* GeoLocationUtils.swift */; };
+		6BC6AE0522B2415D007C2FE1 /* GitHubSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC6AE0422B2415D007C2FE1 /* GitHubSignUpViewController.swift */; };
 		DD35EEA842F68188B4A5A5AD /* Pods_Practice_RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68D81A4680A933A2D3567120 /* Pods_Practice_RxSwift.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		6BC6ADFC22AFA54F007C2FE1 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		6BC6ADFE22B1EC98007C2FE1 /* GeoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoViewController.swift; sourceTree = "<group>"; };
 		6BC6AE0022B210C9007C2FE1 /* GeoLocationUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoLocationUtils.swift; sourceTree = "<group>"; };
+		6BC6AE0422B2415D007C2FE1 /* GitHubSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubSignUpViewController.swift; sourceTree = "<group>"; };
 		B41CF7C86D9DCC41109EE2DA /* Pods-Practice_RxSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Practice_RxSwift.release.xcconfig"; path = "Pods/Target Support Files/Pods-Practice_RxSwift/Pods-Practice_RxSwift.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -78,10 +80,8 @@
 			isa = PBXGroup;
 			children = (
 				6BC6ADE622AFA255007C2FE1 /* AppDelegate.swift */,
-				6BC6ADE822AFA255007C2FE1 /* ViewController.swift */,
-				6BC6ADFC22AFA54F007C2FE1 /* SignUpViewController.swift */,
-				6BC6ADFE22B1EC98007C2FE1 /* GeoViewController.swift */,
-				6BC6AE0022B210C9007C2FE1 /* GeoLocationUtils.swift */,
+				6BC6AE0322B24148007C2FE1 /* VC */,
+				6BC6AE0222B24137007C2FE1 /* Utils */,
 				6BC6ADEA22AFA255007C2FE1 /* Main.storyboard */,
 				6BC6ADF022AFA256007C2FE1 /* Assets.xcassets */,
 				6BC6ADF222AFA256007C2FE1 /* LaunchScreen.storyboard */,
@@ -89,6 +89,25 @@
 				6BC6ADED22AFA255007C2FE1 /* Practice_RxSwift.xcdatamodeld */,
 			);
 			path = Practice_RxSwift;
+			sourceTree = "<group>";
+		};
+		6BC6AE0222B24137007C2FE1 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				6BC6AE0022B210C9007C2FE1 /* GeoLocationUtils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		6BC6AE0322B24148007C2FE1 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				6BC6ADE822AFA255007C2FE1 /* ViewController.swift */,
+				6BC6ADFC22AFA54F007C2FE1 /* SignUpViewController.swift */,
+				6BC6ADFE22B1EC98007C2FE1 /* GeoViewController.swift */,
+				6BC6AE0422B2415D007C2FE1 /* GitHubSignUpViewController.swift */,
+			);
+			path = VC;
 			sourceTree = "<group>";
 		};
 		7DE92FD7B2DC384A0B875A8E /* Pods */ = {
@@ -230,6 +249,7 @@
 				6BC6ADFD22AFA54F007C2FE1 /* SignUpViewController.swift in Sources */,
 				6BC6ADE722AFA255007C2FE1 /* AppDelegate.swift in Sources */,
 				6BC6AE0122B210C9007C2FE1 /* GeoLocationUtils.swift in Sources */,
+				6BC6AE0522B2415D007C2FE1 /* GitHubSignUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
