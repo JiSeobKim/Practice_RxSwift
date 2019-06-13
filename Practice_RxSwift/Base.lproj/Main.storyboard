@@ -19,13 +19,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="63q-xb-xPc">
-                                <rect key="frame" x="171.5" y="433" width="71" height="30"/>
+                                <rect key="frame" x="153" y="418" width="108" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xJq-PB-A61">
-                                        <rect key="frame" x="0.0" y="0.0" width="71" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="108" height="30"/>
                                         <state key="normal" title="Rx SignUp"/>
                                         <connections>
                                             <segue destination="bMA-AM-m9R" kind="show" id="nnv-34-eeH"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y6c-aD-Z6J" userLabel="Rx GeoLocation">
+                                        <rect key="frame" x="0.0" y="30" width="108" height="30"/>
+                                        <state key="normal" title="Rx GeoLocation"/>
+                                        <connections>
+                                            <segue destination="dcE-VO-XBM" kind="show" id="z0X-um-9F6"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -133,6 +140,69 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TLW-Ap-zUq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1917" y="60"/>
+        </scene>
+        <!--Geo View Controller-->
+        <scene sceneID="rc7-h9-50f">
+            <objects>
+                <viewController id="dcE-VO-XBM" customClass="GeoViewController" customModule="Practice_RxSwift" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Kxx-86-EXU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Xhl-sK-b7O">
+                                <rect key="frame" x="12" y="357" width="390" height="182.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yL2-Ed-3bG">
+                                        <rect key="frame" x="157" y="0.0" width="76.5" height="36"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="twE-dS-2dX">
+                                        <rect key="frame" x="174" y="56" width="42" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can disable Geolocation on app's preferences and come back to the app to see what happens" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LJo-E5-IMd">
+                                        <rect key="frame" x="113.5" y="96.5" width="163" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tZu-Hy-R2e">
+                                        <rect key="frame" x="90" y="152" width="210" height="30"/>
+                                        <color key="backgroundColor" red="0.17792341113090515" green="0.60750019550323486" blue="0.84873789548873901" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="210" id="zfn-eF-OOX"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="OPEN APP PREFERENCES">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Xhl-sK-b7O" firstAttribute="centerX" secondItem="Kxx-86-EXU" secondAttribute="centerX" id="DdB-9Y-fDD"/>
+                            <constraint firstItem="fww-Ps-z9l" firstAttribute="trailing" secondItem="Xhl-sK-b7O" secondAttribute="trailing" constant="12" id="Fc5-B4-Wny"/>
+                            <constraint firstItem="Xhl-sK-b7O" firstAttribute="leading" secondItem="fww-Ps-z9l" secondAttribute="leading" constant="12" id="dSM-FI-twk"/>
+                            <constraint firstItem="Xhl-sK-b7O" firstAttribute="centerY" secondItem="Kxx-86-EXU" secondAttribute="centerY" id="f03-xQ-PEw"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="fww-Ps-z9l"/>
+                    </view>
+                    <connections>
+                        <outlet property="btnOpenSetting" destination="tZu-Hy-R2e" id="Dmn-FU-Mub"/>
+                        <outlet property="lb1" destination="yL2-Ed-3bG" id="No1-i9-eAP"/>
+                        <outlet property="lb2" destination="twE-dS-2dX" id="Kv5-2P-kP0"/>
+                        <outlet property="lb3" destination="LJo-E5-IMd" id="EGQ-Ll-HRq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="upg-UW-7lI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1922" y="770"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9Qa-yW-10w">

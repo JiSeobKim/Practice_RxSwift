@@ -12,9 +12,12 @@ import RxSwift
 
 class ViewController: UIViewController {
     var disposeBag = DisposeBag()
+    
+    var tempView: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view.
 //        self.testObservable()
 //        self.testSubject()
@@ -24,7 +27,7 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        testQueue()
+//        testQueue()
     }
     
     func testObservable() {
@@ -156,21 +159,44 @@ class ViewController: UIViewController {
     
     
     func testQueue() {
+        self.tempView = UIView(frame: CGRect(x: 100, y: 300, width: 200, height: 200))
+        self.tempView.backgroundColor = .red
+        self.view.addSubview(tempView)
         
-        let sss = DispatchQueue(label: "Custom")
         
+        let temp = UIView(frame: CGRect(x: 100, y: 300, width: 200, height: 200))
+        temp.backgroundColor = .blue
+        self.view.addSubview(temp)
         
-        sss.sync {
+        DispatchQueue.main.async {
             for row in 1...100 {
-                print("\(row) 👿")
+                print("\(row) ❤️")
             }
         }
 
+        DispatchQueue.global().async {
+            for row in 1...100 {
+                print("\(row) 😂")
+            }
+        }
         
+        
+        
+        let sss = DispatchQueue(label: "Custom", attributes: .concurrent)
         let sss2 = DispatchQueue(label: "Custom2")
-        
-        
-        sss2.async {
+
+        sss.async {
+            for row in 1...100 {
+                print("\(row) 👿")
+                self.tempView.frame.origin.y += 1
+            }
+        }
+
+
+
+
+
+        sss2.sync {
             for row in 1...100 {
                 print("\(row) ❤️")
             }

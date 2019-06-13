@@ -33,9 +33,7 @@ class SignUpViewController: UIViewController {
         let nameValid = tfName.rx.text.orEmpty.map{ $0.count >= self.nameMinimum }.share(replay: 1)
         let passValid = tfPass.rx.text.orEmpty.map{$0.count >= self.passMinimum }.share(replay: 1)
         
-        
-        
-        
+    
         
         nameValid.bind(to: tfPass.rx.isEnabled).disposed(by: disposeBag)
         nameValid.bind(to: lbNmValidation.rx.isHidden).disposed(by: disposeBag)
