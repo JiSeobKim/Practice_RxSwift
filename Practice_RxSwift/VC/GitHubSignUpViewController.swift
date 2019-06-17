@@ -18,9 +18,27 @@ class GitHubSignUpViewController: UIViewController {
     @IBOutlet weak var btnSignUp: UIButton!
     
     
+    var dp = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        let notEmpty1 = tfName.rx.text.orEmpty.map{ $0.count > 0 }.share(replay:1)
+        let notEmpty2 = tfPass.rx.text.orEmpty.map{ $0.count > 0 }.share(replay:1)
+        let notEmpty3 = tfPassR.rx.text.orEmpty.map{ $0.count > 0 }.share(replay:1)
+        
+        let totalEmpty = Observable.combineLatest(notEmpty1, notEmpty2, notEmpty3){ $0 && $1 && $2 }
+        totalEmpty.do(onNext: { (value) in
+            switch value {
+            case true:
+                self.btnSignUp.backgroundColor = .red
+            case false:
+                self.btnSignUp.backgroundColor = .lightGray
+            }
+            }).bind(to: btnSignUp.rx.isEnabled).disposed(by: dp)
+        
+        
 
         // Do any additional setup after loading the view.
     }
