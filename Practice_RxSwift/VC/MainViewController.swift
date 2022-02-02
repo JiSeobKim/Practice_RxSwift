@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MainViewController.swift
 //  Practice_RxSwift
 //
 //  Created by kimjiseob on 11/06/2019.
@@ -9,35 +9,110 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import SnapKit
 
-
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
+    
+    enum Source: CaseIterable {
+        case signUp
+        case geoLocation
+        case githubSignUp
+        case simpleTable
+        case single
+        
+        var title: String {
+            switch self {
+            case .signUp:
+                return "Sign Up"
+            case .geoLocation:
+                return "Geo Location"
+            case .githubSignUp:
+                return "Github Sign Up"
+            case .simpleTable:
+                return "Simple Table"
+            case .single:
+                return "Single"
+            }
+        }
+        
+        var segueID: String? {
+            switch self {
+            case .signUp:
+                return "ShowSIgnUp"
+            case .geoLocation:
+                return "ShowGeoLocation"
+            case .githubSignUp:
+                return "ShowGithubSignUp"
+            case .simpleTable:
+                return "ShowSimpleTable"
+            default:
+                return nil
+            }
+        }
+    }
+    
     var disposeBag = DisposeBag()
     
     var tempView: UIView!
+    private var bag = DisposeBag()
+    private var dataSource: [Source] = Source.allCases
     
-    private var dataSource: [String] = [
-        "SignUp",
-        "GeoLocation",
-        "GithubSignUp",
-        "SimpleTable"
-    ]
+    private let cellID: String = "cell"
+    
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.rowHeight = 50
+        tableView.backgroundColor = .secondarySystemBackground
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
+        return tableView
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
-//        self.testObservable()
-//        self.testSubject()
-//        testZip()
-//        testInterval()
+        setUI()
+        setTableView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        testQueue()
+        
     }
     
+    private func setUI() {
+        title = "RxSwift"
+        self.view.addSubview(tableView)
+        
+        tableView.snp.makeConstraints { make in
+            make.margins.equalToSuperview()
+        }
+    }
+    
+    private func setTableView() {
+        let ob = Observable.just(self.dataSource)
+        ob.bind(to: tableView.rx.items(cellIdentifier: cellID)){ (row: Int, data: Source, cell: UITableViewCell) in
+            var config = cell.defaultContentConfiguration()
+            config.text = data.title
+            config
+            
+            cell.contentConfiguration = config
+            cell.contentView.backgroundColor = .clear
+            cell.backgroundColor = .clear
+        }.disposed(by: bag)
+        
+        tableView.rx
+            .modelSelected(Source.self)
+            .filter{$0.segueID != nil}
+            .map{$0.segueID!}
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { segueID in
+                self.performSegue(withIdentifier: segueID, sender: nil)
+            }).disposed(by: bag)
+    }
+}
+
+// MARK: - 있던 메소드들
+extension MainViewController {
     func testObservable() {
         
         let stringSequence = Observable.just([1,3,2,4])
@@ -164,95 +239,4 @@ class ViewController: UIViewController {
             print($0)
         }).disposed(by: disposeBag)
     }
-    
-    
-    func testQueue() {
-        self.tempView = UIView(frame: CGRect(x: 100, y: 300, width: 200, height: 200))
-        self.tempView.backgroundColor = .red
-        self.view.addSubview(tempView)
-        
-        
-        let temp = UIView(frame: CGRect(x: 100, y: 300, width: 200, height: 200))
-        temp.backgroundColor = .blue
-        self.view.addSubview(temp)
-        
-        DispatchQueue.main.async {
-            for row in 1...100 {
-                print("\(row) ❤️")
-            }
-        }
-
-        DispatchQueue.global().async {
-            for row in 1...100 {
-                print("\(row) 😂")
-            }
-        }
-        
-        
-        
-        let sss = DispatchQueue(label: "Custom", attributes: .concurrent)
-        let sss2 = DispatchQueue(label: "Custom2")
-
-        sss.async {
-            for row in 1...100 {
-                print("\(row) 👿")
-                self.tempView.frame.origin.y += 1
-            }
-        }
-
-
-
-
-
-        sss2.sync {
-            for row in 1...100 {
-                print("\(row) ❤️")
-            }
-        }
-
-        
-        
-        
-        
-        for row in 1...100 {
-            print("\(row)")
-        }
-        
-        
-////
-////        DispatchQueue.global().async {
-////            for row in 1...10 {
-////                print("\(row) 🥶")
-////            }
-////        }
-////
-//        DispatchQueue.global().sync {
-//            for row in 1...100 {
-//                print("\(row) ❤️")
-//            }
-//        }
-//
-//        DispatchQueue.global(qos: .userInteractive).sync {
-//            for row in 1...100 {
-//                print("\(row) 👹")
-//            }
-//        }
-//
-//
-        
-        
-//        let customQueue = DispatchQueue(label: "Custom",qos: .userInteractive, attributes: .concurrent)
-//
-//        customQueue.async {
-//            for row in 1...10 {
-//                print("\(row) 😡")
-//            }
-//        }
-//
-//        for row in 201...210 {
-//            print("\(row) 😇")
-//        }
-    }
-
 }
-

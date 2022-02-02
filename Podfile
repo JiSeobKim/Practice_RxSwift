@@ -9,5 +9,6 @@ target 'Practice_RxSwift' do
 
 	pod 'RxSwift', '~>6.0'
 	pod 'RxCocoa', '~>6.0'
+  pod 'SnapKit'
 
 end
