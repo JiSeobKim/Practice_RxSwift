@@ -10,5 +10,10 @@ target 'Practice_RxSwift' do
 	pod 'RxSwift', '~>6.0'
 	pod 'RxCocoa', '~>6.0'
   pod 'SnapKit'
+  pod 'RxBlocking'
+  
+  target 'Practice_RxSwiftTests' do
+    inherit! :search_paths
+  end
 
 end

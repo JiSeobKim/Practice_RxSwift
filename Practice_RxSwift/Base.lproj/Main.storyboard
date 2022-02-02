@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -23,6 +24,7 @@
                         <segue destination="dcE-VO-XBM" kind="show" identifier="ShowGeoLocation" id="cRE-c5-Spe"/>
                         <segue destination="GeK-nB-Y0A" kind="show" identifier="ShowGithubSignUp" id="v9t-GM-cSI"/>
                         <segue destination="k3I-3P-oiY" kind="show" identifier="ShowSimpleTable" id="zHB-h1-9dx"/>
+                        <segue destination="Vdd-8g-c9u" kind="show" identifier="ShowSingle" id="jKK-ws-beZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -319,6 +321,49 @@
             </objects>
             <point key="canvasLocation" x="3594" y="321"/>
         </scene>
+        <!--Single View Controller-->
+        <scene sceneID="fVO-oz-Spc">
+            <objects>
+                <viewController id="Vdd-8g-c9u" customClass="SingleViewController" customModule="Practice_RxSwift" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sun-ft-H5q">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="CVF-yr-M8A">
+                                <rect key="frame" x="168" y="417" width="78.5" height="62"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RsE-S2-q3A" userLabel="Success">
+                                        <rect key="frame" x="0.0" y="0.0" width="78.5" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Success"/>
+                                        <connections>
+                                            <action selector="successAction:" destination="Vdd-8g-c9u" eventType="touchUpInside" id="Abr-Zb-KLo"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eOd-OJ-BYI">
+                                        <rect key="frame" x="0.0" y="31" width="78.5" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Failure"/>
+                                        <connections>
+                                            <action selector="failureAction:" destination="Vdd-8g-c9u" eventType="touchUpInside" id="CIz-px-2Lp"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6yu-jJ-1su"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="CVF-yr-M8A" firstAttribute="centerY" secondItem="sun-ft-H5q" secondAttribute="centerY" id="AVe-qQ-2bz"/>
+                            <constraint firstItem="CVF-yr-M8A" firstAttribute="centerX" secondItem="sun-ft-H5q" secondAttribute="centerX" id="VpM-4Z-DTT"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="KLP-bX-awO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ebn-RU-IxP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4406" y="321"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="9Qa-yW-10w">
             <objects>
@@ -338,4 +383,9 @@
             <point key="canvasLocation" x="1467" y="-785"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

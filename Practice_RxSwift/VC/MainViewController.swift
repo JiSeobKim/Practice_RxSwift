@@ -45,8 +45,8 @@ class MainViewController: UIViewController {
                 return "ShowGithubSignUp"
             case .simpleTable:
                 return "ShowSimpleTable"
-            default:
-                return nil
+            case .single:
+                return "ShowSingle"
             }
         }
     }
@@ -80,6 +80,7 @@ class MainViewController: UIViewController {
     }
     
     private func setUI() {
+        navigationController?.navigationBar.prefersLargeTitles = true
         title = "RxSwift"
         self.view.addSubview(tableView)
         
@@ -93,7 +94,6 @@ class MainViewController: UIViewController {
         ob.bind(to: tableView.rx.items(cellIdentifier: cellID)){ (row: Int, data: Source, cell: UITableViewCell) in
             var config = cell.defaultContentConfiguration()
             config.text = data.title
-            config
             
             cell.contentConfiguration = config
             cell.contentView.backgroundColor = .clear
