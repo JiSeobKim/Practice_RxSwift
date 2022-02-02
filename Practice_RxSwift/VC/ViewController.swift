@@ -8,12 +8,20 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
 
 
 class ViewController: UIViewController {
     var disposeBag = DisposeBag()
     
     var tempView: UIView!
+    
+    private var dataSource: [String] = [
+        "SignUp",
+        "GeoLocation",
+        "GithubSignUp",
+        "SimpleTable"
+    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -152,7 +160,7 @@ class ViewController: UIViewController {
     }
     
     func testInterval() {
-        Observable<Int>.interval(3, scheduler: MainScheduler.asyncInstance).subscribe(onNext: {
+        Observable<Int>.interval(.seconds(3), scheduler: MainScheduler.asyncInstance).subscribe(onNext: {
             print($0)
         }).disposed(by: disposeBag)
     }
