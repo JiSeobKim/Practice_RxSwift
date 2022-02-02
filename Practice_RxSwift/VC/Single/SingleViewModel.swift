@@ -7,46 +7,37 @@
 //
 
 import RxSwift
+import RxCocoa
 
 protocol SingleViewModel {
-    func createSingleSuccess() -> Single<String>
-    func createSingleError() -> Single<String>
+    var isLoading: PublishSubject<Bool> { get }
+    var models: BehaviorRelay<[SingleStruct]> { get }
+    
+    func update()
 }
 
 class SingleViewModelImp: SingleViewModel {
     
-    enum TestError: Error {
-        case test
-    }
+    var isLoading: PublishSubject<Bool>
+    var models: BehaviorRelay<[SingleStruct]> { repo.dataSources }
     
-    private var queue: DispatchQueue
+    private var repo: SingleRepository
+    private var bag: DisposeBag
     
-    init(queue: DispatchQueue) {
-        self.queue = queue
-    }
-    
-    func createSingleSuccess() -> Single<String> {
-        let single = Single<String>.create { single -> Disposable in
-            
-            self.queue.asyncAfter(deadline: .now() + 0.2) {
-                single(.success("Hi"))
-            }
-            return Disposables.create()
-        }
+    init(
+        repo: SingleRepository
+    ) {
+        self.bag = DisposeBag()
+        self.isLoading = .init()
+        self.repo = repo
         
-        return single
     }
     
-    func createSingleError() -> Single<String> {
-        let single = Single<String>.create { single -> Disposable in
-            
-            self.queue.asyncAfter(deadline: .now() + 0.5) {
-                let error = NSError(domain: #function, code: 0, userInfo: nil)
-                print(">> \(error)")
-                single(.failure(error))
-            }
-            return Disposables.create()
-        }
-        return single
+    func update() {
+        self.isLoading.onNext(true)
+        
+        repo.fetch().subscribe { event in
+            self.isLoading.onNext(false)
+        }.disposed(by: bag)
     }
 }

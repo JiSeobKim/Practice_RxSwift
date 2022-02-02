@@ -15,33 +15,14 @@ class SingleViewController: UIViewController {
     private var bag = DisposeBag()
     
     var schedular: SchedulerType?
-    private var viewModel: SingleViewModel = SingleViewModelImp(queue: DispatchQueue.main)
+    private var viewModel: SingleViewModel = SingleViewModelImp(repo: SingleRepositoryImp())
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     
     @IBAction func successAction(_ sender: UIButton) {
-        viewModel.createSingleSuccess()
-            .subscribe { text in
-                print(text)
-            } onFailure: { error in
-                print(error)
-            } onDisposed: {
-                print("disposed: \(#function)")
-            }.disposed(by: bag)
-    }
-    
-    @IBAction func failureAction(_ sender: UIButton) {
-        viewModel.createSingleError()
-            .subscribe { text in
-                print(text)
-            } onFailure: { error in
-                print(error)
-            } onDisposed: {
-                print("disposed: \(#function)")
-            }.disposed(by: bag)
+        viewModel.update()
     }
 }
