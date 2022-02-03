@@ -10,6 +10,9 @@ import UIKit
 import RxSwift
 import Combine
 
+protocol SinglePresentableListener {
+    func viewDidLoad()
+}
 class SingleViewController: UIViewController {
     
     private var bag = DisposeBag()

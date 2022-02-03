@@ -29,6 +29,7 @@ class SingleViewModelTest: XCTestCase {
         
         var list: [SingleStruct] = []
         sut.models
+            .skip(1)
             .subscribe(onNext: { data in
                 list = data
                 exp.fulfill()

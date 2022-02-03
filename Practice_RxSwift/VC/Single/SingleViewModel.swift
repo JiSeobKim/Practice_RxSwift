@@ -9,6 +9,40 @@
 import RxSwift
 import RxCocoa
 
+protocol SinglePresentable {
+    func startLoading()
+    func stopLoading()
+}
+
+protocol SingleViewModelIn {
+    
+}
+
+protocol SingleVieWModelOut {
+    func startLoading()
+    func stopLoading()
+}
+
+protocol SingleViewModelTemp {
+    var `in`: SingleViewModelIn { get }
+    var out: SingleVieWModelOut { get }
+}
+
+class Temp: SingleViewModelTemp, SingleViewModelIn, SingleVieWModelOut {
+    
+    var `in`: SingleViewModelIn { self }
+    var out: SingleVieWModelOut { self }
+    
+    func startLoading() {
+            
+    }
+    
+    func stopLoading() {
+            
+    }
+    
+}
+
 protocol SingleViewModel {
     var isLoading: PublishSubject<Bool> { get }
     var models: BehaviorRelay<[SingleStruct]> { get }
@@ -36,7 +70,9 @@ class SingleViewModelImp: SingleViewModel {
     func update() {
         self.isLoading.onNext(true)
         
-        repo.fetch().subscribe { event in
+        repo.fetch()
+            .debug()
+            .subscribe { event in
             self.isLoading.onNext(false)
         }.disposed(by: bag)
     }

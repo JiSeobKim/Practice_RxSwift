@@ -11,7 +11,7 @@ import RxCocoa
 
 class SingleRepositoryMock: SingleRepository {
     var dataSources: BehaviorRelay<[SingleStruct]> = .init(value: [])
-    var isSuccess = false
+    var isSuccess = true
     
     var fetchCallCount = 0
     func fetch() -> Single<Void> {
