@@ -38,5 +38,3 @@ class SingleRepositoryImp: SingleRepository {
         return single
     }
 }
-
-

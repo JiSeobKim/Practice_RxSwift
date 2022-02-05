@@ -21,6 +21,7 @@
 		A03BE60227AAA0FC00287CD3 /* SingleRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03BE60127AAA0FC00287CD3 /* SingleRepository.swift */; };
 		A03BE60627AAAD7200287CD3 /* SingleRepositoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03BE60427AAAD6B00287CD3 /* SingleRepositoryTest.swift */; };
 		A03BE60827AAB02C00287CD3 /* SingleRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03BE60727AAB02C00287CD3 /* SingleRepositoryMock.swift */; };
+		A03BE60A27AC16E700287CD3 /* SinglePlayground.swift in Sources */ = {isa = PBXBuildFile; fileRef = A03BE60927AC16E700287CD3 /* SinglePlayground.swift */; };
 		A082C2FC27AA5E6E004F653A /* SingleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A082C2FB27AA5E6E004F653A /* SingleViewController.swift */; };
 		A082C30C27AA7274004F653A /* SingleViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A082C30B27AA7274004F653A /* SingleViewModelTest.swift */; };
 		A082C30E27AA72A6004F653A /* SingleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A082C30D27AA72A6004F653A /* SingleViewModel.swift */; };
@@ -60,6 +61,7 @@
 		A03BE60127AAA0FC00287CD3 /* SingleRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleRepository.swift; sourceTree = "<group>"; };
 		A03BE60427AAAD6B00287CD3 /* SingleRepositoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleRepositoryTest.swift; sourceTree = "<group>"; };
 		A03BE60727AAB02C00287CD3 /* SingleRepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleRepositoryMock.swift; sourceTree = "<group>"; };
+		A03BE60927AC16E700287CD3 /* SinglePlayground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePlayground.swift; sourceTree = "<group>"; };
 		A082C2FB27AA5E6E004F653A /* SingleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleViewController.swift; sourceTree = "<group>"; };
 		A082C30127AA69B8004F653A /* Practice_RxSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Practice_RxSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A082C30B27AA7274004F653A /* SingleViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleViewModelTest.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				A082C2FB27AA5E6E004F653A /* SingleViewController.swift */,
 				A082C30D27AA72A6004F653A /* SingleViewModel.swift */,
 				A03BE60127AAA0FC00287CD3 /* SingleRepository.swift */,
+				A03BE60927AC16E700287CD3 /* SinglePlayground.swift */,
 			);
 			path = Single;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 				6BC6ADE922AFA255007C2FE1 /* MainViewController.swift in Sources */,
 				6BC6ADEF22AFA255007C2FE1 /* Practice_RxSwift.xcdatamodeld in Sources */,
 				6BC6ADFF22B1EC98007C2FE1 /* GeoViewController.swift in Sources */,
+				A03BE60A27AC16E700287CD3 /* SinglePlayground.swift in Sources */,
 				A082C2FC27AA5E6E004F653A /* SingleViewController.swift in Sources */,
 				6BC6AE0722B340D3007C2FE1 /* SimpleTableViewController.swift in Sources */,
 				6BC6ADFD22AFA54F007C2FE1 /* SignUpViewController.swift in Sources */,
